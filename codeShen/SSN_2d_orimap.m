@@ -1,15 +1,15 @@
 function [G_r,I,network_ratio] = SSN_2d_orimap(external_input,varargin)
     
+    global grid_sz num_units
+    global z
+    global t dt
+    global tau_E_m tau_I_m
+    global k_m n_m
+    global G_Wee G_Wei G_Wie G_Wii
+    assign(varargin{:})
+    G_r = gpuArray(zeros(2,grid_sz,grid_sz,length(t))); % firing rate of E and I units
+    G_r_ss = gpuArray(zeros(2,grid_sz,grid_sz,length(t)));
 
-    GlobalVariables_orimap
-%     z=orimap();
-%     assign(varargin{:})
-%     G_r = gpuArray(zeros(2,grid_sz,grid_sz,length(t))); % firing rate of E and I units
-%     G_r_ss = gpuArray(zeros(2,grid_sz,grid_sz,length(t)));
-
-    G_r =zeros(2,grid_sz,grid_sz,length(t)); % firing rate of E and I units
-    G_r_ss =zeros(2,grid_sz,grid_sz,length(t));
-    
     tau_E = 1./( 0.05*randn(grid_sz,grid_sz) * tau_E_m + tau_E_m);
     tau_I = 1./( 0.05*randn(grid_sz,grid_sz) * tau_I_m + tau_I_m);
     tau(1,:,:) = [tau_E];

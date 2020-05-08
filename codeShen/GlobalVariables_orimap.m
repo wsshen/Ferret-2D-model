@@ -2,11 +2,18 @@ global  num_units; % number of units being simulated
 global  dt; % time step
 global  t ; % simulation time 
 global save_path; % save path of figures
-global z
+global sigma_ff sigma_ori
 global Wee Wei Wie Wii G_Wee G_Wei G_Wie G_Wii
-grid_sz = 25;
+global z
+global grid_sz;
+global J sigma_J
+global tau_E_m tau_I_m
+global k_m n_m
+global kk
+
+grid_sz = 20;
 num_units = grid_sz*grid_sz; % 75 x 75 grid
-delta_x = 16/75;
+delta_x = 16/grid_sz;
 
 kk = [0.1 ;0.5];
 
@@ -25,19 +32,13 @@ k_m = 0.012;
 n_m = [2;2.2];
 
 sigma_ori = 45;
-sigma_ff = 145;
+sigma_ff = 32;
 sigma_rf = delta_x;
 
 dt = 1e-3;
 t = 0:dt:1;
 
-% W = [0.044 -0.023 ; 0.042 -0.018]; % ISN matrix
-% 
-% k = 0.04; %0.04
-% n = 2; 
-
-
 tau_E_m = 20e-3;
 tau_I_m = 10e-3;
 
-save_path='./Output/';
+save_path='/Users/shen/Google Drive/private/lab/SSN/Results/';

@@ -1,6 +1,7 @@
 function z = orimap()
     
-    GlobalVariables_orimap
+    global z
+    global grid_sz
     n=30;
     kc = 8/16;
     j = 0:1:n-1;
@@ -18,12 +19,12 @@ function z = orimap()
         end
     end
      
-%     pref = rescale(mod(angle(z),2*pi),[0 2*pi],[1 256]);
-% 
-%     figure
-%     image(pref)
-%     ctab = fitzlabclut(256);
-%     colormap(ctab)
-%     colorbar
+    pref = rescale(mod(angle(z),2*pi),[0 2*pi],[1 256]);
+
+    figure
+    image(pref)
+    ctab = fitzlabclut(256);
+    colormap(ctab)
+    colorbar
     
 end

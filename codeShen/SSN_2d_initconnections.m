@@ -1,6 +1,12 @@
 function W = SSN_2d_initconnections(cmark)
     
-    GlobalVariables_orimap
+    global num_units grid_sz
+    global J sigma_J
+    global z
+    global sigma_ori
+    global kk
+    
+    
     a = cmark(1);
     if a =='E'
         a = 1;
